@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Lender - Loan Eligibility Predictor</title>
+    <style>
+        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #f4f6f9; padding: 30px; margin: 0; }
+        .form-container { background: white; max-width: 550px; margin: 20px auto; padding: 30px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        h2 { text-align: center; color: #2c3e50; margin-bottom: 25px; border-bottom: 2px solid #3498db; padding-bottom: 10px; }
+        label { font-weight: 600; display: block; margin-top: 15px; color: #34495e; }
+        select, input { width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; font-size: 14px; }
+        .submit-btn { background-color: #3498db; color: white; font-size: 16px; font-weight: bold; border: none; margin-top: 25px; padding: 12px; cursor: pointer; border-radius: 4px; transition: 0.3s; width: 100%; }
+        .submit-btn:hover { background-color: #2980b9; }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Smart Lender Profile Details</h2>
+        <form action="/predict" method="POST">
+            <label>Gender:</label>
+            <select name="Gender">
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
+
+            <label>Married:</label>
+            <select name="Married">
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+
+            <label>Dependents:</label>
+            <select name="Dependents">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3+">3+</option>
+            </select>
+
+            <label>Education:</label>
+            <select name="Education">
+                <option value="Graduate">Graduate</option>
+                <option value="Not Graduate">Not Graduate</option>
+            </select>
+
+            <label>Self Employed:</label>
+            <select name="Self_Employed">
+                <option value="No">No</option>
+                <option value="Yes">Yes</option>
+            </select>
+
+            <label>Applicant Income ($):</label>
+            <input type="number" name="ApplicantIncome" value="5000" required>
+
+            <label>Coapplicant Income ($):</label>
+            <input type="number" name="CoapplicantIncome" value="0" required>
+
+            <label>Loan Amount ($ in thousands):</label>
+            <input type="number" name="LoanAmount" value="120" required>
+
+            <label>Loan Amount Term (Days):</label>
+            <input type="number" name="Loan_Amount_Term" value="360" required>
+
+            <label>Credit History:</label>
+            <select name="Credit_History">
+                <option value="1.0">Good (1.0)</option>
+                <option value="0.0">Bad (0.0)</option>
+            </select>
+
+            <label>Property Area:</label>
+            <select name="Property_Area">
+                <option value="Semiurban">Semiurban</option>
+                <option value="Urban">Urban</option>
+                <option value="Rural">Rural</option>
+            </select>
+
+            <button type="submit" class="submit-btn">Check Loan Eligibility</button>
+        </form>
+    </div>
+</body>
+</html>
